@@ -28,6 +28,14 @@
 
   <main class="layout">
     <section class="scene-wrap" aria-label="Garden">
+      <div class="view-switch" role="group" aria-label="View">
+        <button type="button" data-view="plan" aria-pressed="true">Plan</button>
+        <button type="button" data-view="3d" aria-pressed="false">3D walk</button>
+      </div>
+      <div class="scene scene3d" id="scene3d" hidden>
+        <div class="tag" id="tag3d" hidden></div>
+        <p class="loading" id="loading3d" hidden>Raising the arcade…</p>
+      </div>
       <div class="scene" id="scene">
         <svg id="garden" viewBox="0 0 1000 1000" role="img" aria-label="Plan of a cloister garden with four beds around a fountain"></svg>
         <div class="tag" id="tag" hidden></div>
@@ -49,7 +57,7 @@
           <h2>Seed tray <span class="count" id="trayCount">0</span></h2>
           <button type="button" class="btn" id="plantAll">Plant all for me</button>
         </header>
-        <p class="help">Drag a seed by its picture into a bed, or tap a name and then tap the bed. Drag planted flowers to move them.</p>
+        <p class="help" id="help">Drag a seed by its picture into a bed, or tap a name and then tap the bed. Drag planted flowers to move them.</p>
         <ul class="tray-list" id="trayList"></ul>
         <p class="empty" id="trayEmpty" hidden>Every seed is planted. New followers appear here after your next import.</p>
       </section>
@@ -89,6 +97,7 @@
 <div class="toast" id="toast" role="status" hidden></div>
 <script src="js/plants.js"></script>
 <script src="js/garden.js"></script>
+<script src="js/garden3d.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

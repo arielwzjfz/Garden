@@ -14,6 +14,12 @@ Open `index.html` in a browser (or the GitHub Pages site, below).
 - **Seed tray**: new followers arrive here. Drag a seed by its picture into
   one of the four beds, or tap a name and then tap a spot. **Plant all for me**
   scatters every waiting seed evenly.
+- **3D walk**: switch from Plan to 3D walk above the garden to see the
+  cloister in three dimensions: the arcade, the tiled roof, the fountain with
+  its stone seal, and every follower as a 3D plant. Drag to look around,
+  scroll or pinch to come closer, tap a plant to see who it is. With a seed
+  selected, tap a bed to plant it there. At dusk (dark mode) lanterns light
+  the walk.
 - **Move a plant**: drag it. Click it to see who it is, its species and its
   medieval lore.
 - **Unfollows**: anyone missing from a new import fades and is marked "gone to
@@ -61,6 +67,7 @@ Actions.
 - `css/style.css`: styles, light and dusk (dark) themes
 - `js/plants.js`: species list and the top-down plant drawings
 - `js/garden.js`: the cloister plan and the plantable beds
+- `js/garden3d.js`: the 3D view (three.js, loaded from jsDelivr on first use)
 - `js/app.js`: saving, follower import, planting and dragging
 
 The owner's handle appears in `index.html` (the `owner` line in the masthead

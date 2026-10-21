@@ -289,6 +289,7 @@
     drawDetail();
     drawMarks();
     drawHint();
+    if (window.Garden3D && Garden3D.active()) Garden3D.sync();
   }
 
   let toastTimer;
@@ -571,9 +572,54 @@
     if (e.key === 'Escape') { selectedSeed = null; selectedPlant = null; render(); }
   });
 
+  // ---------- plan / 3D view ----------
+  window.GarthApp = {
+    planted,
+    radius: plantRadius,
+    selectedPlant: () => selectedPlant,
+    selectedSeed: () => selectedSeed,
+    selectPlant(u) {
+      selectedPlant = u && selectedPlant !== u ? u : null;
+      render();
+    },
+    plantAt(x, y) {
+      if (!selectedSeed) return;
+      if (!Garden.isPlantable(x, y)) { toast('Plant inside one of the four wattle-fenced beds.'); return; }
+      const u = selectedSeed;
+      plantAt(u, { x, y });
+      toast(`Planted @${u}.`);
+    },
+  };
+
+  const VIEW_KEY = 'the-garth-view';
+  async function setView(v) {
+    const is3d = v === '3d';
+    document.querySelectorAll('.view-switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === v)));
+    $('#scene').hidden = is3d;
+    $('#scene3d').hidden = !is3d;
+    $('#help').textContent = is3d
+      ? 'Drag to walk around the cloister, scroll or pinch to come closer. Tap a seed, then tap a bed to plant it. Moving plants happens on the plan.'
+      : 'Drag a seed by its picture into a bed, or tap a name and then tap the bed. Drag planted flowers to move them.';
+    try { localStorage.setItem(VIEW_KEY, v); } catch (e) { /* ignore */ }
+    if (is3d) {
+      $('#loading3d').hidden = false;
+      try {
+        await Garden3D.show($('#scene3d'));
+      } catch (err) {
+        toast('The 3D view could not load. Check your connection and try again.');
+        setView('plan');
+      }
+      $('#loading3d').hidden = true;
+    } else if (window.Garden3D) Garden3D.hide();
+  }
+  document.querySelectorAll('.view-switch button').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+
   // ---------- start ----------
   if (!state) seedSample();
   render();
+  let startView = 'plan';
+  try { startView = localStorage.getItem(VIEW_KEY) || 'plan'; } catch (e) { /* ignore */ }
+  if (startView === '3d') setView('3d');
   dailyCheck();
   setInterval(dailyCheck, 3 * 3600 * 1000);
 })();

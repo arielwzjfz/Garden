@@ -441,5 +441,5 @@
     '<filter id="wilt" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="' +
     '.5 .4 .1 0 .06  .42 .42 .1 0 .03  .3 .3 .1 0 0  0 0 0 .8 0"/></filter>';
 
-  window.Plants = { SPECIES, BY_ID, identify, render, DEFS, isRare: (sp) => sp.weight <= 2 };
+  window.Plants = { SPECIES, BY_ID, identify, render, DEFS, rng: mulberry, isRare: (sp) => sp.weight <= 2 };
 })();
