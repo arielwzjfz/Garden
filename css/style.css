@@ -63,6 +63,8 @@ h1 {
   margin: 0;
   letter-spacing: -0.01em;
 }
+.owner { margin: 0 0 6px; font: 700 0.78rem/1 var(--font-label); letter-spacing: 0.1em; color: var(--moss); text-transform: lowercase; }
+.owner a { color: inherit; text-underline-offset: 3px; }
 .sub { margin: 8px 0 0; color: var(--muted); text-wrap: pretty; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; }
 .stats div { display: grid; gap: 2px; }
@@ -110,6 +112,8 @@ dt { font: 700 0.72rem/1 var(--font-label); letter-spacing: 0.08em; color: var(-
 .halo { fill: none; stroke: #fff7d6; stroke-width: 2.5; stroke-dasharray: 5 5; animation: spin 12s linear infinite; transform-box: fill-box; transform-origin: center; pointer-events: none; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .ripples circle { transform-box: fill-box; transform-origin: center; animation: ripple 4.8s ease-out infinite; opacity: 0; }
+.spout { animation: spout 1.6s ease-in-out infinite; }
+@keyframes spout { 50% { opacity: 0.35; } }
 @keyframes ripple { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
 .bfly { animation: flutter 0.32s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
 .b1 { offset-path: path("M300 340 C380 260 460 300 430 380 S300 470 360 560 S560 660 640 600 S700 380 600 320 S360 420 300 340"); animation: flutter 0.3s ease-in-out infinite alternate, fly 38s linear infinite; }
@@ -297,6 +301,6 @@ dt { font: 700 0.72rem/1 var(--font-label); letter-spacing: 0.08em; color: var(-
   .detail-art { width: 64px; height: 64px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ripples circle, .bfly, .halo, .grow { animation: none !important; }
+  .ripples circle, .spout, .bfly, .halo, .grow { animation: none !important; }
   .butterflies { display: none; }
 }

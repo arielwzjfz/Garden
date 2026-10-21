@@ -111,8 +111,26 @@
       `<g class="ripples" fill="none" stroke="#e9f2f0" stroke-width="1.2">` +
       `<circle cx="${C}" cy="${C}" r="20"/><circle cx="${C}" cy="${C}" r="20" style="animation-delay:-1.6s"/><circle cx="${C}" cy="${C}" r="20" style="animation-delay:-3.2s"/></g>` +
       `<circle cx="${C}" cy="${C}" r="17" fill="#cfc4b0" stroke="#a99c86" stroke-width="1.2"/>` +
-      `<circle cx="${C}" cy="${C}" r="11" fill="url(#water)"/>` +
-      `<circle cx="${C}" cy="${C}" r="4" fill="#e9f2f0"/>`
+      `<circle cx="${C}" cy="${C}" r="13" fill="url(#water)"/>` +
+      seal()
+    );
+  }
+
+  // the gardener's emblem: a stone seal on the fountain's central basin,
+  // spouting water from its nose
+  function seal() {
+    return (
+      `<g transform="translate(${C} ${C + 2})">` +
+      `<ellipse cx="1.5" cy="2" rx="6.5" ry="10" fill="#2a2416" opacity=".25"/>` +
+      `<path d="M-3 7 L-7 12 L-2 10 Z M3 7 L7 12 L2 10 Z" fill="#7d7a73"/>` +
+      `<ellipse cx="-6" cy="0" rx="3.2" ry="1.6" transform="rotate(35 -6 0)" fill="#7d7a73"/>` +
+      `<ellipse cx="6" cy="0" rx="3.2" ry="1.6" transform="rotate(-35 6 0)" fill="#7d7a73"/>` +
+      `<ellipse cx="0" cy="1" rx="5.5" ry="9" fill="#9a968e"/>` +
+      `<circle cx="0" cy="-7" r="4.4" fill="#a8a49b"/>` +
+      `<ellipse cx="-1.4" cy="-1" rx="2" ry="5" fill="#c3bfb5" opacity=".6"/>` +
+      `<circle cx="-1.6" cy="-8" r=".7" fill="#3b3833"/><circle cx="1.6" cy="-8" r=".7" fill="#3b3833"/>` +
+      `<g class="spout" fill="#e9f2f0"><circle cx="0" cy="-13.5" r="1.3"/><circle cx="-2.5" cy="-16" r=".9"/><circle cx="2.4" cy="-16.3" r=".9"/></g>` +
+      `</g>`
     );
   }
 

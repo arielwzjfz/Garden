@@ -1,6 +1,7 @@
 # The Garth
 
-A cloister garden grown from your Instagram followers. Every follower becomes a
+A cloister garden grown from the Instagram followers of
+[@app_making_seal](https://www.instagram.com/app_making_seal/). Every follower becomes a
 plant, and you decide where it grows. The garden is drawn as a plan of the
 Cuxa Cloister garth at The Met Cloisters: a covered walk, an arcade of paired
 pink-marble colonnettes, four wattle-fenced lawns and a fountain where the
@@ -30,7 +31,7 @@ replaces it.
 Instagram has no public API that lists your followers, so the garden reads
 Instagram's own data download:
 
-1. Instagram → Accounts Center → Your information and permissions →
+1. Signed in as @app_making_seal, Instagram → Accounts Center → Your information and permissions →
    Download your information.
 2. Choose Some of your information → Followers and following, format JSON,
    date range All time.
@@ -61,3 +62,7 @@ Actions.
 - `js/plants.js`: species list and the top-down plant drawings
 - `js/garden.js`: the cloister plan and the plantable beds
 - `js/app.js`: saving, follower import, planting and dragging
+
+The owner's handle appears in `index.html` (the `owner` line in the masthead
+and the import instructions). A stone seal spouts water at the centre of the
+fountain as the gardener's emblem.
